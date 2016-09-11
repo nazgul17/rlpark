@@ -54,7 +54,7 @@ public class GTDLambda implements OnPolicyTD, GVF, EligibilityTraceAlgorithm {
 
   @Override
   public double update(double pi_t, double b_t, RealVector x_t, RealVector x_tp1, double r_tp1, double gamma_tp1,
-      double z_tp1) {
+      double z_tp1, double lambda_tp1) {
     if (x_t == null)
       return initEpisode(gamma_tp1);
     VectorPool pool = VectorPools.pool(e.vect());
@@ -68,7 +68,7 @@ public class GTDLambda implements OnPolicyTD, GVF, EligibilityTraceAlgorithm {
     MutableVector correctionVector = pool.newVector();
     if (x_tp1 != null) {
       correction = e.vect().dotProduct(w);
-      correctionVector.addToSelf(correction * gamma_tp1 * (1 - lambda), x_tp1);
+      correctionVector.addToSelf(correction * gamma_tp1 * (1 - lambda_tp1), x_tp1);
     }
     // Update parameters
     MutableVector deltaE = pool.newVector(e.vect()).mapMultiplyToSelf(delta_t);
@@ -105,6 +105,10 @@ public class GTDLambda implements OnPolicyTD, GVF, EligibilityTraceAlgorithm {
 
   public double update(double pi_t, double b_t, RealVector x_t, RealVector x_tp1, double r_tp1, double gamma_tp1) {
     return update(pi_t, b_t, x_t, x_tp1, r_tp1, gamma_tp1, 0);
+  }
+
+  public double update(double pi_t, double b_t, RealVector x_t, RealVector x_tp1, double r_tp1, double gamma_tp1, double z_tp1) {
+    return update(pi_t, b_t, x_t, x_tp1, r_tp1, gamma_tp1, z_tp1, lambda);
   }
 
   @Override

@@ -11,7 +11,7 @@ public class HTD implements OnPolicyTD, GVF {
   /*
    * Hybrid TD algorithm which performs TD updates when the data is sampled on-policy, and corrected gradient-TD style
    * updates when the data is generated off-policy.
-   * 
+   *
    * Ref: Hackman, Leah. Faster Gradient-TD Algorithms. Diss. University of Alberta, 2012.
    * Link: https://webdocs.cs.ualberta.ca/~sutton/Hackman-MSc-2012.pdf
    */
@@ -44,12 +44,12 @@ public class HTD implements OnPolicyTD, GVF {
 
   @Override
   public double update(double pi_t, double b_t, RealVector x_t, RealVector x_tp1, double r_tp1) {
-    return update(pi_t, b_t, x_t, x_tp1, r_tp1, gamma, 0);
+    return update(pi_t, b_t, x_t, x_tp1, r_tp1, gamma, 0, 0);
   }
 
   @Override
   public double update(double pi_t, double b_t, RealVector x_t, RealVector x_tp1, double r_tp1, double gamma_tp1,
-      double z_tp1) {
+      double z_tp1, double lambda_tp1) {
     if (x_t == null)
       return initEpisode();
     VectorPool pool = VectorPools.pool(x_t);
