@@ -1,13 +1,21 @@
 package rlpark.plugin.rltoys.algorithms.predictions.td;
 
-
 import rlpark.plugin.rltoys.algorithms.traces.ATraces;
 import rlpark.plugin.rltoys.algorithms.traces.EligibilityTraceAlgorithm;
 import rlpark.plugin.rltoys.algorithms.traces.Traces;
 import rlpark.plugin.rltoys.math.vector.RealVector;
 import zephyr.plugin.core.api.monitoring.annotations.Monitor;
 
+/**
+ * Created by Marco Tamassia.
+ */
 public class TDLambda extends TD implements EligibilityTraceAlgorithm {
+  /*
+   * Linearly approximated TD with eligibility traces.
+   *
+   * Ref: van Seijen, Harm, and Richard S. Sutton. "True Online TD (lambda)." ICML. Vol. 14. 2014.
+   * Link: https://webdocs.cs.ualberta.ca/~sutton/papers/v_s_s-trueonline-ICML-2014.pdf
+   */
   private static final long serialVersionUID = 8613865620293286722L;
   protected final double lambda;
   @Monitor

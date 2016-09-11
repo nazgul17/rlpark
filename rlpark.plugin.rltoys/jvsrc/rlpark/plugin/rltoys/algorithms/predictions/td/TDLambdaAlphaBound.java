@@ -15,6 +15,12 @@ import rlpark.plugin.rltoys.math.vector.pool.VectorPools;
  * 
  */
 public class TDLambdaAlphaBound extends TDLambda {
+  /*
+   * TD(lambda) with an adaptive upper-bound for alpha to guarantee convergence.
+   *
+   * Ref: Dabney, W., Barto, A.G.: Adaptive Step-Size for Online Temporal Difference Learning. In: AAAI (2012)
+   * Link: https://people.cs.umass.edu/~wdabney/papers/alpha_bounds.pdf
+   */
   private static final long serialVersionUID = -1404196112258948883L;
 
   public TDLambdaAlphaBound(double lambda, double gamma, double alpha, int nbFeatures) {

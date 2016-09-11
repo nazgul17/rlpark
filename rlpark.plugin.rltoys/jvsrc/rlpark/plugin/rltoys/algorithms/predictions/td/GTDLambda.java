@@ -15,6 +15,12 @@ import zephyr.plugin.core.api.monitoring.annotations.Monitor;
 @SuppressWarnings("restriction")
 @Monitor
 public class GTDLambda implements OnPolicyTD, GVF, EligibilityTraceAlgorithm {
+  /*
+   * TD algorithm that performs approximate stochastic gradient descent on the mean squared projeted Bellman error.
+   *
+   * Ref: Maei, Hamid Reza. Gradient temporal-difference learning algorithms. University of Alberta, 2011.
+   * Link (p.74): https://webdocs.cs.ualberta.ca/~sutton/papers/maei-thesis-2011.pdf
+   */
   private static final long serialVersionUID = 8687476023177671278L;
   protected double gamma;
   final public double alpha_v;

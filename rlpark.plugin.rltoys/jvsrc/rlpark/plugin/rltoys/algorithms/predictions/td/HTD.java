@@ -8,6 +8,13 @@ import zephyr.plugin.core.api.monitoring.annotations.Monitor;
 
 @Monitor
 public class HTD implements OnPolicyTD, GVF {
+  /*
+   * Hybrid TD algorithm which performs TD updates when the data is sampled on-policy, and corrected gradient-TD style
+   * updates when the data is generated off-policy.
+   * 
+   * Ref: Hackman, Leah. Faster Gradient-TD Algorithms. Diss. University of Alberta, 2012.
+   * Link: https://webdocs.cs.ualberta.ca/~sutton/Hackman-MSc-2012.pdf
+   */
   private static final long serialVersionUID = 8687476023177671278L;
   protected double gamma;
   public double alpha_v;

@@ -10,6 +10,12 @@ import zephyr.plugin.core.api.monitoring.annotations.Monitor;
 
 @Monitor
 public class Sarsa implements Predictor, ParameterizedFunction {
+  /*
+   * Linearly approximated Sarsa.
+   *
+   * Ref: van Seijen, Harm, and Richard S. Sutton. "True Online TD (lambda)." ICML. Vol. 14. 2014.
+   * Link: http://jmlr.org/proceedings/papers/v32/seijen14.pdf
+   */
   private static final long serialVersionUID = 9030254074554565900L;
   @Monitor(level = 4)
   protected final Traces e;

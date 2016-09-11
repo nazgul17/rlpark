@@ -15,6 +15,12 @@ import zephyr.plugin.core.api.monitoring.annotations.Monitor;
 
 @Monitor
 public class GQ implements Predictor, LinearLearner, EligibilityTraceAlgorithm {
+  /*
+   * Gradient Temporal-Difference learning algorithm that uses eligibility traces and learns off-policy.
+   *
+   * Ref: Maei, Hamid Reza, and Richard S. Sutton. "GQ (λ): A general gradient algorithm for temporal-difference prediction learning with eligibility traces." Proceedings of the Third Conference on Artificial General Intelligence. Vol. 1. 2010.
+   * Link: https://webdocs.cs.ualberta.ca/~sutton/papers/maei-sutton-10.pdf
+   */
   private static final long serialVersionUID = -4971665888576276439L;
   @Monitor(level = 4)
   public final PVector v;

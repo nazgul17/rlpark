@@ -9,6 +9,12 @@ import zephyr.plugin.core.api.monitoring.annotations.Monitor;
 @Monitor
 @SuppressWarnings("restriction")
 public class TD implements OnPolicyTD {
+  /*
+   * Temporal difference learning with linear approximation.
+   *
+   * Link: http://www.scholarpedia.org/article/Temporal_difference_learning
+   * Name changes ref. -> code: s -> x, v -> theta
+   */
   private static final long serialVersionUID = -3640476464100200081L;
   protected double alpha_v;
   protected double gamma;

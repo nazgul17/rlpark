@@ -10,6 +10,13 @@ import rlpark.plugin.rltoys.math.vector.pool.VectorPool;
 import rlpark.plugin.rltoys.math.vector.pool.VectorPools;
 
 public class ExpectedSarsaControl extends SarsaControl {
+  /*
+   * Variation of Sarsa where instead of a_tp1, the expectation over all available actions is used.
+   * This is meant to reduce the variance of the updates, and speed up convergence.
+   *
+   * Ref: Van Seijen, Harm, et al. "A theoretical and empirical analysis of Expected Sarsa." 2009 IEEE Symposium on Adaptive Dynamic Programming and Reinforcement Learning. IEEE, 2009.
+   * Link: https://staff.science.uva.nl/s.a.whiteson/pubs/vanseijenadprl09.pdf
+   */
   private static final long serialVersionUID = 738626133717186128L;
   private final Action[] actions;
 

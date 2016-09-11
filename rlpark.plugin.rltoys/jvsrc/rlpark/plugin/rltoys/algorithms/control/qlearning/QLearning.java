@@ -14,6 +14,12 @@ import zephyr.plugin.core.api.monitoring.annotations.Monitor;
 
 @Monitor
 public class QLearning implements Predictor, LinearLearner, EligibilityTraceAlgorithm {
+  /*
+   * Linear approximation of Q-learning with eligibility traces.
+   *
+   * Ref: Sutton, Richard S., and Andrew G. Barto. Reinforcement learning: An introduction. Vol. 1. No. 1. Cambridge: MIT press, 1998.
+   * Link: http://webdocs.cs.ualberta.ca/~sutton/book/ebook/node89.html
+   */
   private static final long serialVersionUID = -404558746167490755L;
   @Monitor(level = 4)
   protected final PVector theta;

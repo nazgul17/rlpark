@@ -8,6 +8,12 @@ import rlpark.plugin.rltoys.math.vector.pool.VectorPool;
 import rlpark.plugin.rltoys.math.vector.pool.VectorPools;
 
 public class SarsaAlphaBound extends Sarsa {
+  /*
+   * Sarsa with an adaptive upper-bound for alpha to guarantee convergence.
+   *
+   * Ref: Dabney, W., Barto, A.G.: Adaptive Step-Size for Online Temporal Difference Learning. In: AAAI (2012)
+   * Link: https://people.cs.umass.edu/~wdabney/papers/alpha_bounds.pdf
+   */
   private static final long serialVersionUID = -7883369665747113840L;
 
   public SarsaAlphaBound(double alpha, double gamma, double lambda, int nbFeatures) {
