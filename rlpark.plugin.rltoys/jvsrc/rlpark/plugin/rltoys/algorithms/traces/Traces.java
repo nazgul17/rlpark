@@ -8,6 +8,7 @@ import rlpark.plugin.rltoys.math.vector.RealVector;
 public interface Traces extends Serializable {
   Traces newTraces(int size);
 
+  void update(double lambda, RealVector phi, double phiFactor);
   void update(double lambda, RealVector phi);
 
   void clear();

@@ -44,20 +44,25 @@ public class ATraces implements Traces, Prototype<RealVector> {
   }
 
   @Override
-  public void update(double lambda, RealVector phi) {
-    updateVector(lambda, phi);
+  public void update(double lambda, RealVector phi, double phiFactor) {
+    updateVector(lambda, phi, phiFactor);
     adjustUpdate();
     if (clearRequired(phi, lambda))
       clearBelowThreshold();
     assert Vectors.checkValues(vector);
   }
 
+  @Override
+  public void update(double lambda, RealVector phi) {
+    update(lambda, phi, 1.0);
+  }
+
   protected void adjustUpdate() {
   }
 
-  protected void updateVector(double lambda, RealVector phi) {
+  protected void updateVector(double lambda, RealVector phi, double phiFactor) {
     vector.mapMultiplyToSelf(lambda);
-    vector.addToSelf(phi);
+    vector.addToSelf(phiFactor, phi);
   }
 
   private boolean clearRequired(RealVector phi, double lambda) {

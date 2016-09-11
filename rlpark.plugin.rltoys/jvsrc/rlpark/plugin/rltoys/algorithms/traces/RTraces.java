@@ -35,8 +35,9 @@ public class RTraces extends ATraces {
   }
 
   @Override
-  protected void updateVector(double lambda, RealVector phi) {
+  protected void updateVector(double lambda, RealVector phi, double phiFactor) {
     vector.mapMultiplyToSelf(lambda);
+    vector.addToSelf(phiFactor, phi);
     if (phi instanceof BinaryVector)
       replaceWith((BinaryVector) phi);
     else
